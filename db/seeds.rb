@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+require 'json'
+# NEED TO POPULATE USING GIVEN JSON LIST
+
+Inrgedient.create(name: "lemon")
+Inrgedient.create(name: "ice")
+Inrgedient.create(name: "mint leaves")
