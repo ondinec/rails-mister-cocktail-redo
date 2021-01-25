@@ -7,8 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'json'
-# NEED TO POPULATE USING GIVEN JSON LIST
 
-Inrgedient.create(name: "lemon")
-Inrgedient.create(name: "ice")
-Inrgedient.create(name: "mint leaves")
+puts "seeding ingredients list"
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+file = open(url).read
+drinks_hash = JSON.parse(file)
+ingredients_list = drinks_hash["drinks"]
+ingredients_list.each do |ingredient|
+  Ingredient.create!(name: ingredient["strIngredient1"])
+end
+
+puts "ingredient list completed!"
